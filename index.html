@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Výběrové Uzenářské Speciality | Uzeniny & klobásy Třebíč</title>
+    <meta name="description" content="Prodejna a teplé občerstvení v Třebíči. Široký výběr klobás, zvěřinové speciality, uzené maso a poctivé masné výrobky. Hodnocení 4,8/5 z více než 850 recenzí.">
+    <meta name="keywords" content="uzeniny Třebíč, klobásy Třebíč, uzenářství Třebíč, zvěřinové klobásy, uzenářské speciality, občerstvení Třebíč">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Výběrové Uzenářské Speciality Třebíč">
+    <meta property="og:description" content="Kvalitní uzeniny, zvěřinové klobásy a vyhlášené teplé občerstvení. Zastavte se v Třebíči na Brněnské ulici.">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#121212',
+                            card: '#1A1716',
+                            surface: '#24201E',
+                            wine: '#7A1C1C',
+                            amber: '#D97706',
+                            cream: '#FDFBF7',
+                            muted: '#A39E99'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Cinzel', 'serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles & Animations -->
+    <style>
+        .font-heading { font-family: 'Cinzel', serif; }
+        .font-body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .bg-smoke-pattern {
+            background-color: #121212;
+            background-image: radial-gradient(rgba(217, 119, 6, 0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        .glass-header {
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(253, 251, 247, 0.08);
+        }
+
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(18, 18, 18, 0.6) 0%, rgba(18, 18, 18, 0.95) 100%);
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-6px);
+            border-color: rgba(217, 119, 6, 0.4);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5), 0 0 15px rgba(217, 119, 6, 0.15);
+        }
+
+        .lightbox {
+            transition: opacity 0.3s ease;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-cream font-body antialiased selection:bg-brand-amber selection:text-brand-dark">
+
+    <!-- NAVIGATION -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-full bg-brand-wine flex items-center justify-center text-brand-amber text-lg font-bold border border-brand-amber/30 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid font-heading">V</i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-heading font-bold text-lg tracking-wider text-brand-cream group-hover:text-brand-amber transition-colors">VÝBĚROVÉ</span>
+                        <span class="text-[10px] tracking-widest text-brand-muted uppercase font-medium">Uzenářské Speciality</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#uvod" class="hover:text-brand-amber transition-colors py-2">Úvod</a>
+                    <a href="#speciality" class="hover:text-brand-amber transition-colors py-2">Naše speciality</a>
+                    <a href="#nabidka" class="hover:text-brand-amber transition-colors py-2">Nabídka</a>
+                    <a href="#o-nas" class="hover:text-brand-amber transition-colors py-2">O nás</a>
+                    <a href="#galerie" class="hover:text-brand-amber transition-colors py-2">Galerie</a>
+                    <a href="#kontakt" class="hover:text-brand-amber transition-colors py-2">Kontakt</a>
+                </nav>
+
+                <!-- Desktop CTA -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="https://maps.google.com/?q=Brněnská,+674+01+Třebíč+1+-+Nové+Město" target="_blank" rel="noopener" class="bg-brand-amber hover:bg-amber-600 text-brand-dark font-semibold px-5 py-2.5 rounded-lg transition-all shadow-lg shadow-brand-amber/20 flex items-center space-x-2 text-sm">
+                        <i class="fa-solid fa-location-arrow"></i>
+                        <span>Jak se k nám dostat</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-brand-cream hover:text-brand-amber p-2 focus:outline-none" aria-label="Otevřít menu">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-dark/95 backdrop-blur-xl z-50 flex flex-col justify-between p-6 transform translate-x-full transition-transform duration-300 md:hidden">
+            <div class="flex items-center justify-between">
+                <span class="font-heading font-bold text-lg text-brand-cream">MENU</span>
+                <button id="mobile-menu-close" class="text-brand-cream hover:text-brand-amber p-2">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+            
+            <nav class="flex flex-col space-y-6 text-center text-xl font-medium my-auto">
+                <a href="#uvod" class="mobile-link hover:text-brand-amber transition-colors">Úvod</a>
+                <a href="#speciality" class="mobile-link hover:text-brand-amber transition-colors">Naše speciality</a>
+                <a href="#nabidka" class="mobile-link hover:text-brand-amber transition-colors">Nabídka</a>
+                <a href="#o-nas" class="mobile-link hover:text-brand-amber transition-colors">O nás</a>
+                <a href="#galerie" class="mobile-link hover:text-brand-amber transition-colors">Galerie</a>
+                <a href="#kontakt" class="mobile-link hover:text-brand-amber transition-colors">Kontakt</a>
+            </nav>
+
+            <div class="space-y-4">
+                <a href="https://maps.google.com/?q=Brněnská,+674+01+Třebíč+1+-+Nové+Město" target="_blank" rel="noopener" class="w-full bg-brand-amber hover:bg-amber-600 text-brand-dark font-semibold py-3 rounded-lg text-center block text-base shadow-lg shadow-brand-amber/20">
+                    <i class="fa-solid fa-location-arrow mr-2"></i> Spustit navigaci
+                </a>
+                <a href="tel:+420777556255" class="w-full border border-brand-cream/20 hover:border-brand-amber text-brand-cream py-3 rounded-lg text-center block text-base">
+                    <i class="fa-solid fa-phone mr-2 text-brand-amber"></i> +420 777 556 255
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="uvod">
+        <!-- 2. HERO SECTION -->
+        <section class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-smoke-pattern">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1920&q=80" alt="Ilustrační snímek uzenin" class="w-full h-full object-cover opacity-25 scale-105 transform animate-pulse" style="animation-duration: 10s;">
+                <div class="absolute inset-0 hero-overlay"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-8">
+                        
+                        <!-- Status Badge & Rating -->
+                        <div class="inline-flex flex-wrap items-center gap-3 bg-brand-surface/80 border border-brand-cream/10 rounded-full px-4 py-2 backdrop-blur-md">
+                            <span id="store-status" class="inline-flex items-center text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 mr-1.5 animate-ping"></span>
+                                Kontroluji otevírací dobu...
+                            </span>
+                            <span class="text-brand-muted text-xs">|</span>
+                            <div class="flex items-center space-x-1 text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i>
+                                <span class="font-bold text-brand-cream text-sm">4,8</span>
+                                <span class="text-brand-muted">(850+ recenzí)</span>
+                            </div>
+                        </div>
+
+                        <!-- Main Heading -->
+                        <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-brand-cream leading-tight">
+                            Uzenářské speciality, za kterými <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-amber via-amber-200 to-amber-500">stojí za to zastavit.</span>
+                        </h1>
+
+                        <p class="text-lg text-brand-muted max-w-2xl leading-relaxed">
+                            Vyhledávaná prodejna v Třebíči zaměřená na kvalitní klobásy, zvěřinové speciality a uzené maso. Nakupte si domů, nebo si vybrané speciality vychutnejte teplé přímo na místě.
+                        </p>
+
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                            <a href="#nabidka" class="bg-brand-amber hover:bg-amber-600 text-brand-dark font-bold px-8 py-4 rounded-xl text-center transition-all shadow-xl shadow-brand-amber/20 hover:scale-[1.02]">
+                                Prohlédnout nabídku
+                            </a>
+                            <a href="https://maps.google.com/?q=Brněnská,+674+01+Třebíč+1+-+Nové+Město" target="_blank" rel="noopener" class="border border-brand-cream/20 hover:border-brand-amber text-brand-cream font-semibold px-8 py-4 rounded-xl text-center transition-all bg-brand-card/50 backdrop-blur-sm flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-compass text-brand-amber"></i>
+                                <span>Navigovat k nám</span>
+                            </a>
+                        </div>
+
+                        <!-- Highlights list -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-brand-cream/10 text-xs text-brand-muted">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-brand-amber"></i>
+                                <span>Zvěřinové speciality</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-brand-amber"></i>
+                                <span>Teplé jídlo na místě</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-brand-amber"></i>
+                                <span>Celoroční provoz</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Hero Visual Card -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-brand-amber to-brand-wine opacity-30 blur-xl"></div>
+                            <div class="relative bg-brand-card rounded-2xl border border-brand-cream/10 p-4 sm:p-6 space-y-4">
+                                <div class="relative h-72 sm:h-80 rounded-xl overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Ilustrační snímek klobás" class="w-full h-full object-cover">
+                                    <div class="absolute top-3 right-3 bg-brand-dark/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-brand-amber/30 text-xs font-bold text-brand-amber">
+                                        Oblíbená volba
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-baseline">
+                                        <h3 class="font-heading font-bold text-xl text-brand-cream">Kančí a Jelení klobása</h3>
+                                        <span class="text-brand-amber font-bold">298 Kč/kg</span>
+                                    </div>
+                                    <p class="text-xs text-brand-muted">Zvěřinové klobásy s výraznou chutí, které patří k našim nejčastěji vyhledávaným produktům.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. NEJOBLÍBENĚJŠÍ SPECIALITY -->
+        <section id="speciality" class="py-24 bg-brand-dark relative border-t border-brand-cream/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <span class="text-brand-amber text-xs font-bold uppercase tracking-widest">Sortiment</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-brand-cream">Oblíbené klobásy</h2>
+                    <p class="text-brand-muted text-sm sm:text-base">Výběr z druhů, pro které se k nám zákazníci nejčastěji vracejí.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Item 1 -->
+                    <div class="bg-brand-card rounded-2xl border border-brand-cream/10 p-5 card-hover flex flex-col justify-between">
+                        <div>
+                            <div class="h-48 rounded-xl overflow-hidden mb-4 relative">
+                                <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80" alt="Kančí klobása" class="w-full h-full object-cover">
+                                <span class="absolute bottom-2 left-2 bg-brand-dark/80 backdrop-blur-sm text-[10px] font-bold text-brand-cream px-2 py-1 rounded border border-brand-amber/30">Zvěřina</span>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-brand-cream mb-2">Kančí klobása</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed mb-4">Tradiční klobása s plnou chutí kančího masa a vyváženým kořením.</p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-cream/10 flex justify-between items-center">
+                            <span class="text-xs text-brand-muted">Cena za kg</span>
+                            <span class="font-bold text-brand-amber text-lg">298 Kč</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="bg-brand-card rounded-2xl border border-brand-cream/10 p-5 card-hover flex flex-col justify-between">
+                        <div>
+                            <div class="h-48 rounded-xl overflow-hidden mb-4 relative">
+                                <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=600&q=80" alt="Jelení klobása" class="w-full h-full object-cover">
+                                <span class="absolute bottom-2 left-2 bg-brand-dark/80 backdrop-blur-sm text-[10px] font-bold text-brand-cream px-2 py-1 rounded border border-brand-amber/30">Zvěřina</span>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-brand-cream mb-2">Jelení klobása</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed mb-4">Oblíbená uzenina z jeleního masa s osobitým charakterem a jemnou vůní uzení.</p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-cream/10 flex justify-between items-center">
+                            <span class="text-xs text-brand-muted">Cena za kg</span>
+                            <span class="font-bold text-brand-amber text-lg">298 Kč</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="bg-brand-card rounded-2xl border border-brand-cream/10 p-5 card-hover flex flex-col justify-between">
+                        <div>
+                            <div class="h-48 rounded-xl overflow-hidden mb-4 relative">
+                                <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80" alt="Šunková se sýrem" class="w-full h-full object-cover">
+                                <span class="absolute bottom-2 left-2 bg-brand-dark/80 backdrop-blur-sm text-[10px] font-bold text-brand-cream px-2 py-1 rounded border border-brand-amber/30">Osvědčená kombinace</span>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-brand-cream mb-2">Šunková klobása se sýrem a zeleninou</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed mb-4">Šťavnatá klobása s přidaným sýrem a kousky zeleniny pro pestřejší chuť.</p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-cream/10 flex justify-between items-center">
+                            <span class="text-xs text-brand-muted">Cena za kg</span>
+                            <span class="font-bold text-brand-amber text-lg">295 Kč</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="bg-brand-card rounded-2xl border border-brand-cream/10 p-5 card-hover flex flex-col justify-between">
+                        <div>
+                            <div class="h-48 rounded-xl overflow-hidden mb-4 relative">
+                                <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=600&q=80" alt="Vepřová klobása" class="w-full h-full object-cover">
+                                <span class="absolute bottom-2 left-2 bg-brand-dark/80 backdrop-blur-sm text-[10px] font-bold text-brand-cream px-2 py-1 rounded border border-brand-amber/30">Klasika</span>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-brand-cream mb-2">Vepřová klobása</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed mb-4">Tradiční vepřová klobása s klasickým kořeněním, vhodná na studeno i na ohřátí.</p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-cream/10 flex justify-between items-center">
+                            <span class="text-xs text-brand-muted">Cena za kg</span>
+                            <span class="font-bold text-brand-amber text-lg">245 Kč</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. KOMPLETNÍ NABÍDKA -->
+        <section id="nabidka" class="py-24 bg-brand-surface relative">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-brand-cream/10 pb-6">
+                    <div>
+                        <span class="text-brand-amber text-xs font-bold uppercase tracking-widest">Ceník</span>
+                        <h2 class="font-heading text-3xl sm:text-4xl font-bold text-brand-cream mt-1">Vybrané klobásy a uzeniny</h2>
+                    </div>
+                    <p class="text-xs text-brand-muted mt-2 md:mt-0 italic">* Ceny jsou uvedeny včetně DPH. Dostupnost produktů na pultu se může v průběhu dne měnit.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    
+                    <div class="bg-brand-card/80 p-4 rounded-xl border border-brand-cream/5 flex items-center justify-between hover:border-brand-amber/30 transition-colors">
+                        <span class="font-medium text-brand-cream">Kančí klobása</span>
+                        <span class="font-bold text-brand-amber text-base whitespace-nowrap ml-4">298 Kč / kg</span>
+                    </div>
+
+                    <div class="bg-brand-card/80 p-4 rounded-xl border border-brand-cream/5 flex items-center justify-between hover:border-brand-amber/30 transition-colors">
+                        <span class="font-medium text-brand-cream">Jelení klobása</span>
+                        <span class="font-bold text-brand-amber text-base whitespace-nowrap ml-4">298 Kč / kg</span>
+                    </div>
+
+                    <div class="bg-brand-card/80 p-4 rounded-xl border border-brand-cream/5 flex items-center justify-between hover:border-brand-amber/30 transition-colors">
+                        <span class="font-medium text-brand-cream">Skopová pastevecká</span>
+                        <span class="font-bold text-brand-amber text-base whitespace-nowrap ml-4">298 Kč / kg</span>
+                    </div>
+
+                    <div class="bg-brand-card/80 p-4 rounded-xl border border-brand-cream/5 flex items-center justify-between hover:border-brand-amber/30 transition-colors">
+                        <span class="font-medium text-brand-cream">Šunková klobása se sýrem a zeleninou</span>
+                        <span class="font-bold text-brand-amber text-base whitespace-nowrap ml-4">295 Kč / kg</span>
+                    </div>
+
+                    <div class="bg-brand-card/80 p-4 rounded-xl border border-brand-cream/5 flex items-center justify-between hover:border-brand-amber/30 transition-colors">
+                        <span class="font-medium text-brand-cream">Paprikáš klobása</span>
+                        <span class="font-bold text-brand-amber text-base whitespace-nowrap ml-4">277 Kč / kg</span>
+                    </div>
+
+                    <div class="bg-brand-card/80 p-4 rounded-xl border border-brand-cream/5 flex items-center justify-between hover:border-brand-amber/30 transition-colors">
+                        <span class="font-medium text-brand-cream">Poctivka – šunková libová klobása</span>
+                        <span class="font-bold text-brand-amber text-base whitespace-nowrap ml-4">277 Kč / kg</span>
+                    </div>
+
+                    <div class="bg-brand-card/80 p-4 rounded-xl border border-brand-cream/5 flex items-center justify-between hover:border-brand-amber/30 transition-colors">
+                        <span class="font-medium text-brand-cream">Selečí klobása</span>
+                        <span class="font-bold text-brand-amber text-base whitespace-nowrap ml-4">277 Kč / kg</span>
+                    </div>
+
+                    <div class="bg-brand-card/80 p-4 rounded-xl border border-brand-cream/5 flex items-center justify-between hover:border-brand-amber/30 transition-colors">
+                        <span class="font-medium text-brand-cream">Párečky se sýrem</span>
+                        <span class="font-bold text-brand-amber text-base whitespace-nowrap ml-4">277 Kč / kg</span>
+                    </div>
+
+                    <div class="bg-brand-card/80 p-4 rounded-xl border border-brand-cream/5 flex items-center justify-between hover:border-brand-amber/30 transition-colors">
+                        <span class="font-medium text-brand-cream">Vepřová klobása</span>
+                        <span class="font-bold text-brand-amber text-base whitespace-nowrap ml-4">245 Kč / kg</span>
+                    </div>
+
+                    <div class="bg-brand-card/80 p-4 rounded-xl border border-brand-cream/5 flex items-center justify-between hover:border-brand-amber/30 transition-colors">
+                        <span class="font-medium text-brand-cream">Kabanos</span>
+                        <span class="font-bold text-brand-amber text-base whitespace-nowrap ml-4">192 Kč / kg</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. DALŠÍ SPECIALITY -->
+        <section class="py-20 bg-brand-dark border-t border-brand-cream/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gradient-to-r from-brand-card via-brand-surface to-brand-card rounded-3xl p-8 sm:p-12 border border-brand-cream/10">
+                    <div class="max-w-3xl">
+                        <span class="text-brand-amber text-xs font-bold uppercase tracking-widest">Další nabídka prodejny</span>
+                        <h2 class="font-heading text-2xl sm:text-3xl font-bold text-brand-cream mt-2 mb-4">V prodejně najdete i řadu dalších masných výrobků</h2>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-8">Nabídka na pultu se pravidelně obměňuje. Kromě stálého sortimentu klobás u nás podle sezóny a dostupnosti zakoupíte také:</p>
+                        
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm font-medium">
+                            <div class="flex items-center space-x-3 bg-brand-dark/50 p-3 rounded-lg border border-brand-cream/5">
+                                <i class="fa-solid fa-drumstick-bite text-brand-amber"></i>
+                                <span>Sekaná</span>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-brand-dark/50 p-3 rounded-lg border border-brand-cream/5">
+                                <i class="fa-solid fa-bacon text-brand-amber"></i>
+                                <span>Uzený bok</span>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-brand-dark/50 p-3 rounded-lg border border-brand-cream/5">
+                                <i class="fa-solid fa-utensils text-brand-amber"></i>
+                                <span>Uzená kýta</span>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-brand-dark/50 p-3 rounded-lg border border-brand-cream/5">
+                                <i class="fa-solid fa-check text-brand-amber"></i>
+                                <span>Různé druhy salámů</span>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-brand-dark/50 p-3 rounded-lg border border-brand-cream/5">
+                                <i class="fa-solid fa-jar text-brand-amber"></i>
+                                <span>Paštiky</span>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-brand-dark/50 p-3 rounded-lg border border-brand-cream/5">
+                                <i class="fa-solid fa-box text-brand-amber"></i>
+                                <span>Výrobky ve sklenicích</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. TEPLÉ PŘÍMO NA MÍSTĚ -->
+        <section class="py-24 relative overflow-hidden bg-gradient-to-b from-brand-dark to-brand-surface">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-6 space-y-6">
+                        <span class="bg-brand-wine/40 text-brand-amber text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-brand-wine">Občerstvení & Zastávka</span>
+                        <h2 class="font-heading text-3xl sm:text-4xl font-bold text-brand-cream leading-tight">
+                            Rychlé občerstvení <span class="text-brand-amber">teplé přímo na místě</span>
+                        </h2>
+                        <p class="text-brand-muted leading-relaxed">
+                            Procházíte nebo projíždíte Třebíčí a chcete si dát něco dobrého k jídlu? Vybrané speciality vám rádi připravíme teplé na tácek. Ideální volba na rychlou pauzu během dne nebo cestování.
+                        </p>
+
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-lg bg-brand-card flex items-center justify-center text-brand-amber border border-brand-cream/10 shrink-0">
+                                    <i class="fa-solid fa-fire text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-cream">Příprava k okamžité spotřebě</h4>
+                                    <p class="text-xs text-brand-muted">Teplé klobásy podávané s pečivem a dochucovadly podle vašeho přání.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-lg bg-brand-card flex items-center justify-center text-brand-amber border border-brand-cream/10 shrink-0">
+                                    <i class="fa-solid fa-chair text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-cream">Venkovní posezení</h4>
+                                    <p class="text-xs text-brand-muted">Za příznivého počasí můžete využít venkovní místa k sezení před prodejnou.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-lg bg-brand-card flex items-center justify-center text-brand-amber border border-brand-cream/10 shrink-0">
+                                    <i class="fa-solid fa-bag-shopping text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-cream">S sebou na cestu</h4>
+                                    <p class="text-xs text-brand-muted">Jídlo vám rádi zabalíme tak, abyste si ho mohli pohodlně odvézt s sebou.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6 relative">
+                        <div class="relative rounded-3xl overflow-hidden border border-brand-cream/10 shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=80" alt="Ilustrační snímek servírování" class="w-full h-[450px] object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6 p-6 bg-brand-dark/80 backdrop-blur-md rounded-2xl border border-brand-cream/10">
+                                <p class="text-xs font-semibold text-brand-amber uppercase tracking-wider">Oblíbená zastávka v Třebíči</p>
+                                <p class="text-sm text-brand-cream font-medium mt-1">Občerstvení přímo na trase přes Třebíč s možností zakoupení uzenin s sebou domů.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. PROČ SE ZASTAVIT (O NÁS) -->
+        <section id="o-nas" class="py-24 bg-brand-dark border-t border-brand-cream/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <span class="text-brand-amber text-xs font-bold uppercase tracking-widest">O prodejně</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-brand-cream">Proč navštívit naši prodejnu</h2>
+                    <p class="text-brand-muted text-sm sm:text-base">Místo v Třebíči, kde se snoubí široká nabídka uzenin s přátelskou obsluhou.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <div class="bg-brand-card p-8 rounded-2xl border border-brand-cream/5 space-y-4">
+                        <div class="w-12 h-12 bg-brand-wine/30 rounded-xl flex items-center justify-center text-brand-amber text-xl border border-brand-wine/50">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-brand-cream">Široký výběr uzenin</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">Od klasických vepřových klobás až po speciality ze zvěřiny a skopového masa na jednom místě.</p>
+                    </div>
+
+                    <div class="bg-brand-card p-8 rounded-2xl border border-brand-cream/5 space-y-4">
+                        <div class="w-12 h-12 bg-brand-wine/30 rounded-xl flex items-center justify-center text-brand-amber text-xl border border-brand-wine/50">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-brand-cream">Možnost teplého jídla</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">Pohodlná zastávka na cestě pro rychlé občerstvení, které vám rádi ohřejeme a naservírujeme.</p>
+                    </div>
+
+                    <div class="bg-brand-card p-8 rounded-2xl border border-brand-cream/5 space-y-4">
+                        <div class="w-12 h-12 bg-brand-wine/30 rounded-xl flex items-center justify-center text-brand-amber text-xl border border-brand-wine/50">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-brand-cream">Ochotná obsluha</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">Příjemné prostředí menší prodejny, kde vám s výběrem produktů rádi poradíme.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. RECENZE -->
+        <section class="py-24 bg-brand-surface relative border-t border-brand-cream/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <span class="text-brand-amber text-xs font-bold uppercase tracking-widest">Zkušenosti návštěvníků</span>
+                        <h2 class="font-heading text-3xl sm:text-4xl font-bold text-brand-cream mt-1">Témata z hodnocení zákazníků</h2>
+                    </div>
+                    
+                    <!-- Rating Overall Card -->
+                    <div class="mt-6 md:mt-0 bg-brand-card px-6 py-3 rounded-2xl border border-brand-cream/10 flex items-center space-x-4">
+                        <div class="text-3xl font-bold font-heading text-brand-amber">4,8</div>
+                        <div class="text-xs">
+                            <div class="flex text-amber-400 space-x-1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="text-brand-muted mt-0.5 block">z více než 850 recenzí na Google</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Themes Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <div class="bg-brand-card p-6 rounded-2xl border border-brand-cream/5 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-2 text-brand-amber text-sm font-bold">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <span>Zvěřinové klobásy</span>
+                            </div>
+                            <p class="text-xs text-brand-muted leading-relaxed">
+                                Zákazníci v recenzích opakovaně vyzdvihují zejména chuť a nabídku zvěřinových klobás, jako je kančí a jelení.
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-brand-cream/5 text-[11px] text-brand-muted">
+                            Časté téma v recenzích
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-card p-6 rounded-2xl border border-brand-cream/5 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-2 text-brand-amber text-sm font-bold">
+                                <i class="fa-solid fa-route"></i>
+                                <span>Oblíbená zastávka</span>
+                            </div>
+                            <p class="text-xs text-brand-muted leading-relaxed">
+                                Lidé často zmiňují prodejnu jako výborné místo pro rychlou pauzu na jídlo při průjezdu Třebíčí.
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-brand-cream/5 text-[11px] text-brand-muted">
+                            Časté téma v recenzích
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-card p-6 rounded-2xl border border-brand-cream/5 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-2 text-brand-amber text-sm font-bold">
+                                <i class="fa-solid fa-smile"></i>
+                                <span>Kvalita a obsluha</span>
+                            </div>
+                            <p class="text-xs text-brand-muted leading-relaxed">
+                                Hodnocení se pravidelně zmiňují o dobrém poměru ceny a kvality i o příjemném přístupu personálu.
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-brand-cream/5 text-[11px] text-brand-muted">
+                            Časté téma v recenzích
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 9. GALERIE -->
+        <section id="galerie" class="py-24 bg-brand-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-8">
+                    <span class="text-brand-amber text-xs font-bold uppercase tracking-widest">Názorná ukázka</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-brand-cream">Galerie návrhu</h2>
+                </div>
+
+                <!-- Mandatory Demo Note -->
+                <div class="mb-10 text-center">
+                    <p class="inline-block bg-brand-surface/80 border border-brand-cream/10 text-brand-muted text-xs px-4 py-2 rounded-lg italic">
+                        <i class="fa-solid fa-circle-info text-brand-amber mr-1.5"></i>
+                        Fotografie jsou v tomto návrhu pouze ilustrační. Ve finální verzi budou nahrazeny fotografiemi podniku a jeho produktů.
+                    </p>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    
+                    <div class="relative group h-64 rounded-xl overflow-hidden cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80', 'Ukázka klobás na grilu (ilustrační foto)')">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" alt="Ilustrační snímek uzenin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <i class="fa-solid fa-magnifying-glass-plus text-brand-amber text-2xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="relative group h-64 rounded-xl overflow-hidden cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=1200&q=80', 'Ukázka klobás na pultu (ilustrační foto)')">
+                        <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80" alt="Ilustrační snímek výběru klobás" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <i class="fa-solid fa-magnifying-glass-plus text-brand-amber text-2xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="relative group h-64 rounded-xl overflow-hidden cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=1200&q=80', 'Ukázka zvěřinové klobásy (ilustrační foto)')">
+                        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=600&q=80" alt="Ilustrační snímek uzenin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <i class="fa-solid fa-magnifying-glass-plus text-brand-amber text-2xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="relative group h-64 rounded-xl overflow-hidden cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80', 'Ukázka teplého občerstvení (ilustrační foto)')">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" alt="Ilustrační snímek přípravy jídla" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <i class="fa-solid fa-magnifying-glass-plus text-brand-amber text-2xl"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. KDE NÁS NAJDETE & KONTAKT -->
+        <section id="kontakt" class="py-24 bg-brand-surface border-t border-brand-cream/5 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Info Panel -->
+                    <div class="lg:col-span-5 space-y-8">
+                        <div>
+                            <span class="text-brand-amber text-xs font-bold uppercase tracking-widest">Kde nás najdete</span>
+                            <h2 class="font-heading text-3xl font-bold text-brand-cream mt-1">Adresa a kontakt</h2>
+                            <p class="text-brand-muted text-sm mt-2">Prodejna se nachází na ulici Brněnská v Třebíči s dobrou dostupností pro místní i projíždějící.</p>
+                        </div>
+
+                        <!-- Contact items -->
+                        <div class="space-y-6 text-sm">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-xl bg-brand-card border border-brand-cream/10 flex items-center justify-center text-brand-amber shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-cream">Adresa prodejny</h4>
+                                    <p class="text-brand-muted mt-0.5">Brněnská, 674 01 Třebíč 1 – Nové Město</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-xl bg-brand-card border border-brand-cream/10 flex items-center justify-center text-brand-amber shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-cream">Telefonní kontakt</h4>
+                                    <a href="tel:+420777556255" class="text-brand-amber font-semibold hover:underline mt-0.5 block">+420 777 556 255</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-xl bg-brand-card border border-brand-cream/10 flex items-center justify-center text-brand-amber shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-cream">E-mail</h4>
+                                    <a href="mailto:l.avkovsky@gmail.com" class="text-brand-muted hover:text-brand-amber mt-0.5 block">l.avkovsky@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Opening Hours Table -->
+                        <div class="bg-brand-card p-6 rounded-2xl border border-brand-cream/10 space-y-3">
+                            <h4 class="font-heading font-bold text-brand-cream flex items-center space-x-2">
+                                <i class="fa-regular fa-clock text-brand-amber"></i>
+                                <span>Otevírací doba</span>
+                            </h4>
+                            <div class="space-y-2 text-xs divide-y divide-brand-cream/5">
+                                <div class="flex justify-between pt-2">
+                                    <span class="text-brand-muted">Pondělí</span>
+                                    <span class="font-semibold text-brand-cream">8:45 – 19:00</span>
+                                </div>
+                                <div class="flex justify-between pt-2">
+                                    <span class="text-brand-muted">Úterý</span>
+                                    <span class="font-semibold text-brand-cream">8:45 – 19:00</span>
+                                </div>
+                                <div class="flex justify-between pt-2">
+                                    <span class="text-brand-muted">Středa</span>
+                                    <span class="font-semibold text-brand-cream">8:45 – 19:00</span>
+                                </div>
+                                <div class="flex justify-between pt-2">
+                                    <span class="text-brand-muted">Čtvrtek</span>
+                                    <span class="font-semibold text-brand-cream">8:45 – 19:00</span>
+                                </div>
+                                <div class="flex justify-between pt-2">
+                                    <span class="text-brand-muted">Pátek</span>
+                                    <span class="font-semibold text-brand-cream">8:45 – 19:00</span>
+                                </div>
+                                <div class="flex justify-between pt-2">
+                                    <span class="text-brand-muted">Sobota</span>
+                                    <span class="font-semibold text-brand-amber">8:00 – 14:00</span>
+                                </div>
+                                <div class="flex justify-between pt-2">
+                                    <span class="text-brand-muted">Neděle</span>
+                                    <span class="font-semibold text-rose-400">Zavřeno</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Map CTA -->
+                        <a href="https://maps.google.com/?q=Brněnská,+674+01+Třebíč+1+-+Nové+Město" target="_blank" rel="noopener" class="w-full bg-brand-amber hover:bg-amber-600 text-brand-dark font-bold py-4 rounded-xl text-center block transition-all shadow-lg shadow-brand-amber/20">
+                            <i class="fa-solid fa-location-arrow mr-2"></i> Spustit navigaci na místo
+                        </a>
+
+                    </div>
+
+                    <!-- Map Container -->
+                    <div class="lg:col-span-7 h-full min-h-[400px] rounded-3xl overflow-hidden border border-brand-cream/10 relative shadow-2xl">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2611.8532890251855!2d15.8885!3d49.2145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470d015b67285d95%3A0x400af0f66152a20!2sBrn%C4%9Bnsk%C3%A1%2C%20674%2001%20T%C5%99eb%C3%AD%C4%8D!5e0!3m2!1scs!2scz!4v1680000000000!5m2!1scs!2scz" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; filter: grayscale(0.8) contrast(1.2) opacity(0.85);" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Mapa prodejny">
+                        </iframe>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 11. FOOTER -->
+    <footer class="bg-brand-dark border-t border-brand-cream/10 pt-16 pb-12 text-xs text-brand-muted">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-brand-wine flex items-center justify-center text-brand-amber font-bold border border-brand-amber/30">
+                            <span class="font-heading">V</span>
+                        </div>
+                        <span class="font-heading font-bold text-sm text-brand-cream">VÝBĚROVÉ UZENÁŘSKÉ SPECIALITY</span>
+                    </div>
+                    <p class="text-brand-muted leading-relaxed">
+                        Prodejna uzenářských specialit v Třebíči. Nabídka klobás, zvěřiny, uzeného masa a teplého občerstvení na místě.
+                    </p>
+                </div>
+
+                <div>
+                    <h5 class="font-heading font-bold text-brand-cream uppercase tracking-wider mb-4">Navigace</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#uvod" class="hover:text-brand-amber transition-colors">Úvod</a></li>
+                        <li><a href="#speciality" class="hover:text-brand-amber transition-colors">Naše speciality</a></li>
+                        <li><a href="#nabidka" class="hover:text-brand-amber transition-colors">Kompletní ceník</a></li>
+                        <li><a href="#o-nas" class="hover:text-brand-amber transition-colors">O nás</a></li>
+                        <li><a href="#galerie" class="hover:text-brand-amber transition-colors">Galerie</a></li>
+                        <li><a href="#kontakt" class="hover:text-brand-amber transition-colors">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-heading font-bold text-brand-cream uppercase tracking-wider mb-4">Kontakt</h5>
+                    <ul class="space-y-2">
+                        <li>Brněnská, 674 01 Třebíč 1</li>
+                        <li>Tel: <a href="tel:+420777556255" class="hover:text-brand-amber">+420 777 556 255</a></li>
+                        <li>E-mail: <a href="mailto:l.avkovsky@gmail.com" class="hover:text-brand-amber">l.avkovsky@gmail.com</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-heading font-bold text-brand-cream uppercase tracking-wider mb-4">Otevírací doba</h5>
+                    <p class="mb-1">Po–Pá: <span class="text-brand-cream font-medium">8:45 – 19:00</span></p>
+                    <p class="mb-1">Sobota: <span class="text-brand-amber font-medium">8:00 – 14:00</span></p>
+                    <p>Neděle: <span class="text-rose-400 font-medium">Zavřeno</span></p>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-brand-cream/5 flex flex-col sm:flex-row justify-between items-center text-brand-muted space-y-4 sm:space-y-0">
+                <p>&copy; <span id="year"></span> Výběrové Uzenářské Speciality Třebíč. Všechna práva vyhrazena.</p>
+                <p class="text-[10px]">Nezávazný demo návrh webové prezentace.</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" class="fixed inset-0 bg-brand-dark/95 backdrop-blur-xl z-50 hidden flex-col items-center justify-center p-4 lightbox opacity-0">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-brand-cream hover:text-brand-amber text-3xl p-2">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[80vh] rounded-2xl border border-brand-cream/10 shadow-2xl object-contain mb-4">
+        <p id="lightbox-caption" class="text-brand-cream font-heading text-lg font-bold text-center"></p>
+    </div>
+
+    <!-- JAVASCRIPT CODE -->
+    <script>
+        // Set dynamic year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Header glass effect on scroll
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                header.classList.add('glass-header');
+            } else {
+                header.classList.remove('glass-header');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        mobileMenuClose.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Store Opening Status Script
+        function checkOpeningStatus() {
+            const now = new Date();
+            const day = now.getDay(); // 0 = Sun, 1 = Mon, ..., 6 = Sat
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const currentTime = hour * 60 + minute;
+
+            const statusEl = document.getElementById('store-status');
+            
+            let isOpen = false;
+
+            if (day >= 1 && day <= 5) {
+                // Mon-Fri: 8:45 (525 min) - 19:00 (1140 min)
+                if (currentTime >= 525 && currentTime < 1140) isOpen = true;
+            } else if (day === 6) {
+                // Sat: 8:00 (480 min) - 14:00 (840 min)
+                if (currentTime >= 480 && currentTime < 840) isOpen = true;
+            }
+
+            if (isOpen) {
+                statusEl.className = "inline-flex items-center text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+                statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span> Právě otevřeno`;
+            } else {
+                statusEl.className = "inline-flex items-center text-xs font-semibold px-2.5 py-0.5 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20";
+                statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-rose-400 mr-1.5"></span> Nyní zavřeno`;
+            }
+        }
+
+        checkOpeningStatus();
+
+        // Lightbox Functions
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+
+        function openLightbox(src, caption) {
+            lightboxImg.src = src;
+            lightboxCaption.textContent = caption;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // Close lightbox on backdrop click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
